@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Hide notes",
+  "version": "1.0",
+  "description": "Agrega notas adhesivas en cualquier página web.",
+  "permissions": ["storage", "scripting", "activeTab"],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["content/notes.js", "content/content.js"],
+      "css": ["styles/context-menu.css"]
+    }
+  ],
+  "host_permissions": ["<all_urls>"]
+}
